@@ -1,0 +1,16 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Launch Firefox Add-on",
+        "type": "firefox",
+        "request": "launch",
+        "reAttach": true,
+        "addonPath": "${workspaceFolder}",
+        "firefoxExecutable": "C:\\Program Files\\Mozilla Firefox\\firefox.exe",
+        "reloadOnAttach": true,
+        "port": 6000 // The default port, change if necessary
+      }
+    ]
+  }
+  
