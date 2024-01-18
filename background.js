@@ -30,15 +30,11 @@ checkPrivateBrowsingPermission();
 function updateProxySettings(proxyAddress) {
     if (proxyAddress) {
         // Parse the proxyAddress and apply the settings
-        let [protocol, fullHost] = proxyAddress.split('://');
-        let [host, port] = fullHost.split(':');
-
         browser.proxy.settings.set({
             value: {
                 proxyType: "manual",
-                http: host,
-                httpProxyAll: true,
-                port: parseInt(port),
+                socks:proxyAddress,
+                proxyDNS: true,
                 // If you want to set different proxies for other protocols,
                 // set them here as well
                 // ssl: host,
@@ -61,7 +57,6 @@ browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     proxyType: "manual",
                     // You will need to set your manual configuration here
                     socks: proxyAddr,
-                    ssl: proxyAddr,
                     proxyDNS: true,
                     // ... other proxy settings
                 },
